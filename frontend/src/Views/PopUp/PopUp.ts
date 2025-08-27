@@ -34,7 +34,7 @@ class PopUp
         popup.appendChild(title);
         popup.appendChild(body);
 
-        let page = document.querySelector('body');
+        let page = document.querySelector('#app');
         page.appendChild(popup);
     }
 }
