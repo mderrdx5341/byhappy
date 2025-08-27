@@ -17,5 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     app.appendChild(desk.html());
     app.appendChild(new Views.Player(player).html());
-    //console.log(player.getCarts());
+    //console.log(player.getCarts()); 
+    
 });
