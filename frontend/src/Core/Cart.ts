@@ -49,7 +49,6 @@ class Cart
     public action()
     {
         this._action();
-        //this._gameObjects.getStep().addStep();
     }
 
     public type()
