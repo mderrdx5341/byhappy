@@ -5,11 +5,11 @@ import * as Views from './Views';
 
 document.addEventListener('DOMContentLoaded', () => {
     let observer = new Core.Observer(); 
-    let step = new Core.Step(observer);
+    let time = new Core.Time(observer);
     let player = new Core.Player(observer);
 
-    let gameObjects = new Core.GameObjects(step, player)
-    let statusLine = new Views.StatusLine(step);
+    let gameObjects = new Core.GameObjects(time, player)
+    let statusLine = new Views.StatusLine(time);
 
     observer.addSubscrubir(statusLine);
 
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     workCart.setAction(function() {
         this._gameObjects.getPlayer().subEnergy(8);
         this._gameObjects.getPlayer().addMoney(1);
-        this._gameObjects.getStep().addStep(8);
+        this._gameObjects.getTime().addHours(8);
     });
 
     player.addCart(workCart);
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let sleepCart = new Core.Cart(gameObjects, 'Sleep', 'add 7 energy', Core.CartType.Action);
     sleepCart.setAction(function() {
         this._gameObjects.getPlayer().addEnergy(8);
-        this._gameObjects.getStep().addStep(8);
+        this._gameObjects.getTime().addHours(8);
     });
 
     player.addCart(sleepCart);
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let learningCart = new Core.Cart(gameObjects, 'Learning', 'add', Core.CartType.Action);
     learningCart.setAction(function() {
         this._gameObjects.getPlayer().subEnergy(3);
-        this._gameObjects.getStep().addStep(2);
+        this._gameObjects.getTime().addHours(2);
     });
 
     player.addCart(learningCart);

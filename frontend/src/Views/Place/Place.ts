@@ -48,8 +48,8 @@ class Place
 
     public action()
     {
-        this._gameObjects.getPlayer().addMoney(1);
-        this._gameObjects.getStep().addStep();
+        //this._gameObjects.getPlayer().addMoney(1);
+        //this._gameObjects.getStep().addStep();
     }
 }
 

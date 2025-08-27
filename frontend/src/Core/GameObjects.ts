@@ -2,20 +2,20 @@ import * as Core from '.';
 
 class GameObjects
 {
-    private _step: Core.Step;
+    private _time: Core.Time;
     private _player: Core.Player;
     private _history: string; //TODO 
 
-    public constructor(step, player, history: string = 'todo')
+    public constructor(time: Core.Time, player, history: string = 'todo')
     {
-        this._step = step;
+        this._time = time;
         this._player = player;
         this._history = history;
     }
 
-    public getStep(): Core.Step
+    public getTime(): Core.Time
     {
-        return this._step;
+        return this._time;
     }
 
     public getPlayer(): Core.Player
