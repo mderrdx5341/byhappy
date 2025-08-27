@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let desk = new Views.Desk();
     let app = document.querySelector('#app');
     for (let i: number = 0; i < player.getCarts().length; i++) {
-        desk.carts().append((new Views.Cart(player.getCarts()[i])).html());
+        desk.carts().append((new Views.Cart(statusLine, player.getCarts()[i])).html());
     }
 
     let playerView = new Views.Player(player);
