@@ -1,0 +1,13 @@
+.place {
+    display: block;
+    width: 100px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    
+
+    &__title {
+        border-bottom: 1px solid #e5e5e5;
+    }
+}

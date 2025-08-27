@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
         desk.carts().append((new Views.Cart(player.getCarts()[i])).html());
     }
 
+    desk.actions().append(new Views.Place(new Core.Place()).html());
+
     app.appendChild(desk.html());
+    app.appendChild(new Views.Player(player).html());
     //console.log(player.getCarts());
 });
