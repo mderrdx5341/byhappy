@@ -1,0 +1,7 @@
+class PopUp
+{
+    public constructor()
+    {
+
+    }
+}
