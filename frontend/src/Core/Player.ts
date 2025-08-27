@@ -57,6 +57,9 @@ class Player
 
     public subEnergy(energy)
     {
+        if (this._energy < energy) {
+            throw new Error('Не хватает энергии');
+        }
         this._energy -= energy;
         this.updated();
     }

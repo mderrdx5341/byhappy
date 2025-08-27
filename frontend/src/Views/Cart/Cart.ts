@@ -56,12 +56,15 @@ class Cart
 
     public action()
     {
-        this._cart.action();
-        let popup = new Views.PopUp(
-            this._cart.title(),
-            'Cart Action'
-        );
-        popup.show();
+        try 
+        {
+            this._cart.action();
+        } 
+        catch (e)
+        {
+            let popup = new Views.PopUp('Нельзя использовать карту', e.message);
+            popup.show();
+        }
     }
 }
 
