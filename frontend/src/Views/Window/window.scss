@@ -1,0 +1,8 @@
+#app {
+    display: grid;
+    gap: 10px;
+    grid-template-areas: 
+        "carts player"
+        "status status"
+        ;
+}
