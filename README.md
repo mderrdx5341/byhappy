@@ -1,12 +1,21 @@
+```
 game
+	step
+		playCart(cart: Cart)
+			cart.action(player)
+
 	carts<Cart>[];
 	cart
 	{
 		title()
 		description()
 		effects[]
-		addEfect(effect)
 		action()
+		type : enum {
+			item,
+			player,
+			action
+		}
 	}
 	action(cart)
 	{
@@ -22,3 +31,4 @@ game
 	desk(actions[])
 	{
 	}
+```
