@@ -14,6 +14,11 @@ class Place
         return this._title;
     }
 
+    public description()
+    {
+        return this._description;
+    }
+
     public action(): number
     {
         return 1;
