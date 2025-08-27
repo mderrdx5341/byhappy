@@ -4,6 +4,7 @@ class Player implements Core.ISubscriber
 {
     private _player: Core.Player;
     private _moneyHtml: HTMLElement;
+    private _energyHtml: HTMLElement;
     
     constructor(player: Core.Player)
     {
@@ -23,7 +24,13 @@ class Player implements Core.ISubscriber
         level.className = 'player__money';
         level.innerHTML = 'Уровень: ' + this._player.level();
 
+        this._energyHtml = document.createElement('div');
+        this._energyHtml.className = 'player__money';
+        this._energyHtml.innerHTML = 'Енергия: ' + this._player.getEnergy();
+
+        player.appendChild(this._energyHtml);
         player.appendChild(this._moneyHtml);
+        
         player.appendChild(level);
 
         return player;
@@ -32,11 +39,17 @@ class Player implements Core.ISubscriber
     public update()
     {
         this.updateMonery();
+        this.updateEnergy();
     }
 
     public updateMonery()
     {
         this._moneyHtml.innerHTML = 'Деньги: ' + this._player.money();
+    }
+
+    public updateEnergy()
+    {
+        this._energyHtml.innerHTML = 'Енергия: ' + this._player.getEnergy();
     }
 }
 

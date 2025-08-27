@@ -14,10 +14,22 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.addSubscrubir(statusLine);
 
     
+    let workCart = new Core.Cart(gameObjects, 'Work', 'add 1 money', Core.CartType.Action);
+    workCart.setAction(function(){
+        this._gameObjects.getPlayer().addMoney(1);
+        this._gameObjects.getPlayer().subEnergy(5);
+        this._gameObjects.getStep().addStep();
+    });
 
-    player.addCart(new Core.Cart(gameObjects, 'Step', 'Use cart for action or place', Core.CartType.Action,
-        function() {this._gameObjects.getStep().addStep()}
-    ));
+    player.addCart(workCart);
+
+    let sleepCart = new Core.Cart(gameObjects, 'Sleep', 'add 7 energy', Core.CartType.Action);
+    sleepCart.setAction(function(){
+        this._gameObjects.getPlayer().addEnergy(7);
+        this._gameObjects.getStep().addStep();
+    });
+
+    player.addCart(sleepCart);
 
     let emptyCart = new Core.Cart(gameObjects);
     emptyCart.setAction(function() {

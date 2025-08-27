@@ -6,6 +6,7 @@ class Player
     private _observer: Observer;
     private _money: number;
     private _level: number;
+    private _energy: number;
 
     private _carts: Cart[];
 
@@ -15,6 +16,7 @@ class Player
         this._carts = [];
         this._level = 0;
         this._money = 0;
+        this._energy = 100;
     }
 
     public addCart(cart: Cart)
@@ -46,6 +48,23 @@ class Player
     public money(): number
     {
         return this._money;
+    }
+
+    public getEnergy(): number
+    {
+        return this._energy;
+    }
+
+    public subEnergy(energy)
+    {
+        this._energy -= energy;
+        this.updated();
+    }
+
+    public addEnergy(energy)
+    {
+        this._energy += energy;
+        this.updated();
     }
 
     public level(): number
