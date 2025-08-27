@@ -14,7 +14,7 @@ class Place
         return this._title;
     }
 
-    public action()
+    public action(): number
     {
         return 1;
     }

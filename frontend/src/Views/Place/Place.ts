@@ -1,11 +1,14 @@
 import * as Core from '../../Core';
+import * as Views from '../.';
 
 class Place
 {
     private _place;
+    private _mediator;
 
-    public constructor(place: Core.Place)
+    public constructor(mediator: Views.MediatorPlayer, place: Core.Place)
     {
+        this._mediator = mediator;
         this._place = place;
     }
 
@@ -24,11 +27,16 @@ class Place
         button.className = 'place__action';
         button.innerHTML = 'action';
 
-        button.addEventListener('click', () => alert(this._place.action()));
+        button.addEventListener('click', () => this.action());
 
         place.appendChild(button);
 
         return place;
+    }
+
+    public action()
+    {
+        this._mediator.action(this._place.action());
     }
 }
 

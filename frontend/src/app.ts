@@ -13,10 +13,15 @@ document.addEventListener('DOMContentLoaded', () => {
         desk.carts().append((new Views.Cart(player.getCarts()[i])).html());
     }
 
-    desk.actions().append(new Views.Place(new Core.Place()).html());
+    let playerView = new Views.Player(player);
+    desk.actions().append(
+        new Views.Place(
+            new Views.MediatorPlayer(player, playerView),
+            new Core.Place()).html()
+        );
 
     app.appendChild(desk.html());
-    app.appendChild(new Views.Player(player).html());
+    app.appendChild(playerView.html());
     //console.log(player.getCarts()); 
     
 });
