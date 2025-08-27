@@ -1,0 +1,29 @@
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border: 1px solid;
+    border-radius: 5px;
+    min-width: 300px;
+    min-height: 300px;
+    padding: 5px;
+}
+.popup__close {
+    top: -10px;
+    position: absolute;
+    right: -10px;
+}
+
+.popup__title {
+    background: #218fba;
+    padding: 5px;
+    color: #fff;
+}
+
+.popup__body {
+    padding: 5px;
+    background: #ededed;
+    height: 100%;
+}

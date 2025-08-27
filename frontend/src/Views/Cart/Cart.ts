@@ -34,7 +34,13 @@ class Cart
         btnDetails.className = 'cart__details';
         btnDetails.innerHTML = 'details';
 
-        btnDetails.addEventListener('click', () => alert(this._cart.description()));
+        btnDetails.addEventListener('click', () => {
+            let popup = new Views.PopUp(
+                this._cart.title(),
+                this._cart.description()
+            );
+            popup.show();
+        });
 
         let btnAction = document.createElement('button');
         btnAction.className = 'cart__action';
@@ -53,7 +59,11 @@ class Cart
     public action()
     {
         this._statusLine.updateStep();
-        alert('action Cart');
+        let popup = new Views.PopUp(
+            this._cart.title(),
+            'Cart Action'
+        );
+        popup.show();
     }
 }
 

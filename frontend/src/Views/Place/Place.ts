@@ -26,7 +26,13 @@ class Place
         let btnDetails = document.createElement('button');
         btnDetails.className = 'place__action';
         btnDetails.innerHTML = 'details';
-        btnDetails.addEventListener('click', () => alert(this._place.description()));
+        btnDetails.addEventListener('click', () => {
+            let popup = new Views.PopUp(
+                this._place.title(),
+                this._place.description()
+            );
+            popup.show();
+        });
 
         let btnAction = document.createElement('button');
         btnAction.className = 'place__action';

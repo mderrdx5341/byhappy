@@ -24,6 +24,4 @@ document.addEventListener('DOMContentLoaded', () => {
     app.appendChild(desk.html());
     app.appendChild(playerView.html());
     app.appendChild(statusLine.html());
-    //console.log(player.getCarts()); 
-    
 });

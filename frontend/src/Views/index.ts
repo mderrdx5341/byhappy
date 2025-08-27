@@ -6,4 +6,6 @@ import MediatorPlayer from './Player/MediatorPlayer';
 
 import StatusLine from './StatusLIne/StatusLine';
 
-export {Desk, Player, Cart, Place, MediatorPlayer, StatusLine};
+import PopUp from './PopUp/PopUp';
+
+export {Desk, Player, Cart, Place, MediatorPlayer, StatusLine, PopUp};
