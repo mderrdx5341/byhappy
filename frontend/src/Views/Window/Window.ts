@@ -1,4 +1,4 @@
-class Window
+class GameWindow
 {
     private _title: string;
     private _body: any;

@@ -6,7 +6,7 @@ import * as Views from './Views';
 document.addEventListener('DOMContentLoaded', () => {
     let player = new Core.Player();
     player.addCart(new Core.Cart());
-    player.addCart(new Core.Cart('Вах Вах', 'Аля улу'));
+    player.addCart(new Core.Cart('Вах Вах', 'Аля улу', Core.CartType.Player));
     let desk = new Views.Desk();
     let app = document.querySelector('#app');
     for (let i: number = 0; i < player.getCarts().length; i++) {

@@ -1,12 +1,18 @@
+import Effect from './Effect';
+import CartType from './CartType';
+
 class Cart
 {
     private _name: string = 'title';
     private _description: string = 'description';
+    private _effects: Effect[];
+    private _type: CartType;
 
-    constructor(name = 'title', description = 'description')
+    constructor(name: string = 'title', description: string = 'description', type: CartType = CartType.Item)
     {
         this._name = name;
         this._description = description;
+        this._type = type;
     }
 
     public title()
@@ -18,6 +24,21 @@ class Cart
     {
         return this._description;
     }
+
+    public effects()
+    {
+
+    }
+
+    public action()
+    {
+
+    }
+
+    public type()
+    {
+        return this._type;
+    }
 }
 
-export {Cart};
+export default Cart;

@@ -35,4 +35,4 @@ class Desk
     }
 }
 
-export {Desk};
+export default Desk;

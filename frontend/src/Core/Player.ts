@@ -1,28 +1,29 @@
-import {Cart} from './Cart';
+import Cart from './Cart';
 
 class Player
 {
-    private carts: Cart[];
+    private _money: Number;
+    private _carts: Cart[];
 
     constructor()
     {
-        this.carts = [];
+        this._carts = [];
     }
 
     public addCart(cart: Cart)
     {
-        this.carts.push(cart);
+        this._carts.push(cart);
     }
 
     public getCarts()
     {
-        return this.carts;
+        return this._carts;
     }
 
     public getCartById(id): Cart
     {
-        return this.carts[id];
+        return this._carts[id];
     }
 }
 
-export {Player};
+export default Player;
