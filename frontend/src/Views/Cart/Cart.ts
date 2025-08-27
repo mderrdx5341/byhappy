@@ -3,12 +3,10 @@ import * as Views from '../.';
 
 class Cart
 {
-    private _statusLine: Views.StatusLine;
     private _cart: Core.Cart;
 
-    constructor(statusLine: Views.StatusLine, cart: Core.Cart)
+    constructor(cart: Core.Cart)
     {
-        this._statusLine = statusLine;
         this._cart = cart;
     }
 
@@ -58,7 +56,7 @@ class Cart
 
     public action()
     {
-        this._statusLine.updateStep();
+        this._cart.action();
         let popup = new Views.PopUp(
             this._cart.title(),
             'Cart Action'

@@ -4,11 +4,11 @@ import * as Views from '../.';
 class Place
 {
     private _place;
-    private _mediator;
+    private _gameObjects;
 
-    public constructor(mediator: Views.MediatorPlayer, place: Core.Place)
+    public constructor(gameObjects: Core.GameObjects, place: Core.Place)
     {
-        this._mediator = mediator;
+        this._gameObjects = gameObjects;
         this._place = place;
     }
 
@@ -48,7 +48,8 @@ class Place
 
     public action()
     {
-        this._mediator.action(this._place.action());
+        this._gameObjects.getPlayer().addMoney(1);
+        this._gameObjects.getStep().addStep();
     }
 }
 

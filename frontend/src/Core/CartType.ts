@@ -1,7 +1,8 @@
 enum CartType {
     Item = 'item',
     Player = 'player',
-    Action = 'action'
+    Action = 'action',
+    Place = 'place'
 }
 
 export default CartType;

@@ -1,5 +1,6 @@
 import Effect from './Effect';
 import CartType from './CartType';
+import GameObjects from './GameObjects';
 
 class Cart
 {
@@ -8,7 +9,7 @@ class Cart
     private _effects: Effect[];
     private _type: CartType;
 
-    constructor(name: string = 'title', description: string = 'description', type: CartType = CartType.Item)
+    constructor(gameObject: GameObjects, name: string = 'title', description: string = 'description', type: CartType = CartType.Item)
     {
         this._name = name;
         this._description = description;

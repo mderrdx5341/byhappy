@@ -1,6 +1,6 @@
 import * as Core from '../../Core';
 
-class Player
+class Player implements Core.ISubscriber
 {
     private _player: Core.Player;
     private _moneyHtml: HTMLElement;
@@ -27,6 +27,11 @@ class Player
         player.appendChild(level);
 
         return player;
+    }
+
+    public update()
+    {
+        this.updateMonery();
     }
 
     public updateMonery()

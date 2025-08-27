@@ -1,14 +1,17 @@
 import Cart from './Cart';
+import Observer from './Observer';
 
 class Player
 {
+    private _observer: Observer;
     private _money: number;
     private _level: number;
 
     private _carts: Cart[];
 
-    constructor()
+    constructor(observer: Observer)
     {
+        this._observer = observer;
         this._carts = [];
         this._level = 0;
         this._money = 0;
@@ -32,6 +35,7 @@ class Player
     public addMoney(money: number)
     {
         this._money += money;
+        this.updated();
     }
 
     public setMoney(money: number)
@@ -47,6 +51,11 @@ class Player
     public level(): number
     {
         return this._level;
+    }
+
+    public updated()
+    {
+        this._observer.updated();
     }
 }
 

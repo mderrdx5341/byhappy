@@ -4,20 +4,34 @@ import * as Core from './Core';
 import * as Views from './Views';
 
 document.addEventListener('DOMContentLoaded', () => {
-    let statusLine = new Views.StatusLine(new Core.Step());
-    let player = new Core.Player();
-    player.addCart(new Core.Cart());
-    player.addCart(new Core.Cart('Вах Вах', 'Аля улу', Core.CartType.Player));
+    let observer = new Core.Observer(); 
+    let step = new Core.Step(observer);
+    let player = new Core.Player(observer);
+
+    let gameObjects = new Core.GameObjects(step, player)
+    let statusLine = new Views.StatusLine(step);
+
+    observer.addSubscrubir(statusLine);
+
+    
+
+    player.addCart(new Core.Cart(gameObjects, 'Step', 'Use cart for action or place', Core.CartType.Action));
+    player.addCart(new Core.Cart(gameObjects));
+    player.addCart(new Core.Cart(gameObjects, 'Вах Вах', 'Аля улу', Core.CartType.Player));
+    
     let desk = new Views.Desk();
     let app = document.querySelector('#app');
     for (let i: number = 0; i < player.getCarts().length; i++) {
-        desk.carts().append((new Views.Cart(statusLine, player.getCarts()[i])).html());
+        desk.carts().append((new Views.Cart(player.getCarts()[i])).html());
     }
 
     let playerView = new Views.Player(player);
+
+    observer.addSubscrubir(playerView);
+
     desk.actions().append(
         new Views.Place(
-            new Views.MediatorPlayer(statusLine, player, playerView),
+            gameObjects,
             new Core.Place()).html()
         );
 

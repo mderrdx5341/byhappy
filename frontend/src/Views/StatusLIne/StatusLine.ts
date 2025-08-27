@@ -1,6 +1,6 @@
 import * as Core from '../../Core';
 
-class StatusLine
+class StatusLine implements Core.ISubscriber
 {
     private _step: Core.Step;
     private _stepHtml: HTMLElement;
@@ -24,9 +24,8 @@ class StatusLine
         return statusLine;
     }
 
-    public updateStep()
+    public update()
     {
-        this._step.addStep();
         this._stepHtml.innerHTML = 'Step: ' + this._step.getStep();
     }
 }
