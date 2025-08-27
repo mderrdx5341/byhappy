@@ -23,13 +23,19 @@ class Place
 
         place.appendChild(title);
 
-        let button = document.createElement('button');
-        button.className = 'place__action';
-        button.innerHTML = 'action';
+        let btnDetails = document.createElement('button');
+        btnDetails.className = 'place__action';
+        btnDetails.innerHTML = 'details';
+        btnDetails.addEventListener('click', () => alert(this._place.description()));
 
-        button.addEventListener('click', () => this.action());
+        let btnAction = document.createElement('button');
+        btnAction.className = 'place__action';
+        btnAction.innerHTML = 'action';
 
-        place.appendChild(button);
+        btnAction.addEventListener('click', () => this.action());
+
+        place.appendChild(btnDetails);
+        place.appendChild(btnAction);
 
         return place;
     }
