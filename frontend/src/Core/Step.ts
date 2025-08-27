@@ -12,9 +12,15 @@ class Step
         this._step = 0;
     }
 
-    public addStep()
+    public addStep(steps: number = 1)
     {
-        this._step += 1;
+        this._step += steps;
+        this.updated();
+    }
+
+    public subStep(steps: number = 1)
+    {
+        this._step -= steps;
         this.updated();
     }
 

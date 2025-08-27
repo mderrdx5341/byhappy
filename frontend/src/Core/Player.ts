@@ -16,7 +16,7 @@ class Player
         this._carts = [];
         this._level = 0;
         this._money = 0;
-        this._energy = 100;
+        this._energy = 24;
     }
 
     public addCart(cart: Cart)

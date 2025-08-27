@@ -18,18 +18,26 @@ document.addEventListener('DOMContentLoaded', () => {
     workCart.setAction(function(){
         this._gameObjects.getPlayer().addMoney(1);
         this._gameObjects.getPlayer().subEnergy(5);
-        this._gameObjects.getStep().addStep();
+        this._gameObjects.getStep().addStep(8);
     });
 
     player.addCart(workCart);
 
     let sleepCart = new Core.Cart(gameObjects, 'Sleep', 'add 7 energy', Core.CartType.Action);
     sleepCart.setAction(function(){
-        this._gameObjects.getPlayer().addEnergy(7);
-        this._gameObjects.getStep().addStep();
+        this._gameObjects.getPlayer().addEnergy(8);
+        this._gameObjects.getStep().addStep(8);
     });
 
     player.addCart(sleepCart);
+
+    let learningCart = new Core.Cart(gameObjects, 'Learning', 'add', Core.CartType.Action);
+    learningCart.setAction(function(){
+        this._gameObjects.getPlayer().subEnergy(3);
+        this._gameObjects.getStep().addStep(2);
+    });
+
+    player.addCart(learningCart);
 
     let emptyCart = new Core.Cart(gameObjects);
     emptyCart.setAction(function() {
