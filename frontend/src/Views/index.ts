@@ -4,4 +4,6 @@ import Desk from './Desk/Desk';
 import Place from './Place/Place';
 import MediatorPlayer from './Player/MediatorPlayer';
 
-export {Desk, Player, Cart, Place, MediatorPlayer};
+import StatusLine from './StatusLIne/StatusLine';
+
+export {Desk, Player, Cart, Place, MediatorPlayer, StatusLine};

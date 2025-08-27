@@ -3,11 +3,13 @@ import * as Views from '..';
 
 class MediatorPlayer
 {
+    private _statusLine: Views.StatusLine;
     private _player; 
     private _viewPlayer;
 
-    public constructor(player: Core.Player, viewPlayer: Views.Player)
+    public constructor(statusLine: Views.StatusLine, player: Core.Player, viewPlayer: Views.Player)
     {
+        this._statusLine = statusLine;
         this._player = player;
         this._viewPlayer = viewPlayer;
     }
@@ -15,6 +17,7 @@ class MediatorPlayer
     {
         this._player.addMoney(money);
         this._viewPlayer.updateMonery();
+        this._statusLine.updateStep();
     }
 }
 
