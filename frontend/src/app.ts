@@ -5,8 +5,8 @@ import * as Views from './Views';
 
 document.addEventListener('DOMContentLoaded', () => {
     let observer = new Core.Observer(); 
-    let time = new Core.Time(observer);
-    let player = new Core.Player(observer);
+    let time = new Core.TimeWithObserver(observer);
+    let player = new Core.PlayerWithObserver(observer);
 
     let gameObjects = new Core.GameObjects(time, player)
     let statusLine = new Views.StatusLine(time);

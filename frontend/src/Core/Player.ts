@@ -3,16 +3,14 @@ import Observer from './Observer';
 
 class Player
 {
-    private _observer: Observer;
     private _money: number;
     private _level: number;
     private _energy: number;
 
     private _carts: Cart[];
 
-    constructor(observer: Observer)
+    constructor()
     {
-        this._observer = observer;
         this._carts = [];
         this._level = 0;
         this._money = 0;
@@ -37,7 +35,6 @@ class Player
     public addMoney(money: number)
     {
         this._money += money;
-        this.updated();
     }
 
     public setMoney(money: number)
@@ -61,23 +58,16 @@ class Player
             throw new Error('Не хватает энергии');
         }
         this._energy -= energy;
-        this.updated();
     }
 
     public addEnergy(energy)
     {
         this._energy += energy;
-        this.updated();
     }
 
     public level(): number
     {
         return this._level;
-    }
-
-    public updated()
-    {
-        this._observer.updated();
     }
 }
 
