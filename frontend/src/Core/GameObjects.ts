@@ -13,12 +13,12 @@ class GameObjects
         this._history = history;
     }
 
-    public getStep()
+    public getStep(): Core.Step
     {
         return this._step;
     }
 
-    public getPlayer()
+    public getPlayer(): Core.Player
     {
         return this._player;
     }

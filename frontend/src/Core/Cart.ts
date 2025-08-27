@@ -9,9 +9,17 @@ class Cart
     private _description: string = 'description';
     private _effects: Effect[];
     private _type: CartType;
+    private _action;
 
-    constructor(gameObject: GameObjects, name: string = 'title', description: string = 'description', type: CartType = CartType.Item)
+    constructor(
+        gameObject: GameObjects,
+        name: string = 'title',
+        description: string = 'description',
+        type: CartType = CartType.Item,
+        action: CallableFunction = () =>{}
+    )
     {
+        this._action = action;
         this._gameObjects = gameObject;
         this._name = name;
         this._description = description;
@@ -33,9 +41,15 @@ class Cart
 
     }
 
+    public setAction(action: CallableFunction)
+    {
+        this._action = action;
+    }
+
     public action()
     {
-        this._gameObjects.getStep().addStep();
+        this._action();
+        //this._gameObjects.getStep().addStep();
     }
 
     public type()

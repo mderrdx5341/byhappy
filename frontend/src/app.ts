@@ -15,9 +15,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
 
-    player.addCart(new Core.Cart(gameObjects, 'Step', 'Use cart for action or place', Core.CartType.Action));
-    player.addCart(new Core.Cart(gameObjects));
-    player.addCart(new Core.Cart(gameObjects, 'Вах Вах', 'Аля улу', Core.CartType.Player));
+    player.addCart(new Core.Cart(gameObjects, 'Step', 'Use cart for action or place', Core.CartType.Action,
+        function() {this._gameObjects.getStep().addStep()}
+    ));
+
+    let emptyCart = new Core.Cart(gameObjects);
+    emptyCart.setAction(function() {
+        alert('Ошибка природы');
+    });
+
+    player.addCart(emptyCart);
+    player.addCart(new Core.Cart(gameObjects, 'Вах Вах', 'Аля улу', Core.CartType.Player, 
+        function() {this._gameObjects.getPlayer().addMoney(4)}
+    ));
     
     let desk = new Views.Desk();
     let app = document.querySelector('#app');
