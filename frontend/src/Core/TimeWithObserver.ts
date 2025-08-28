@@ -10,15 +10,15 @@ class TimeWithObserver extends Core.Time
         this._observer = observer;
     }
 
-    public addHours(steps: number = 1)
+    public addHours(hours: number = 1)
     {
-        super.addHours(steps);
+        super.addHours(hours);
         this.updated();
     }
 
-    public subHours(steps: number = 1)
+    public subHours(hours: number = 1)
     {
-        super.subHours(steps);
+        super.subHours(hours);
         this.updated();
     }
 
