@@ -11,6 +11,7 @@ import TimeWithObserver from './TimeWithObserver';
 import ISubscriber from './ISubscriber';
 import CartForUse from './CartForUse';
 import CartForUseWithObserver from './CartForUseWithObserver';
+import CartCollection from './CartCollection';
 
 export {
     Player,
@@ -25,5 +26,6 @@ export {
     TimeWithObserver,
     PlayerWithObserver,
     CartForUse,
-    CartForUseWithObserver
+    CartForUseWithObserver,
+    CartCollection
 };

@@ -38,7 +38,9 @@ class Cart
 
     public use(id)
     {
-        this._gameObjects.getCartForUse().addCart(this._gameObjects.getPlayer().getCartById(id));
+        this._gameObjects.getCartForUse().addCart(
+            this._gameObjects.getCartCollection().getCartById(id)
+        );
         console.log(this._gameObjects.getCartForUse());
     }
 

@@ -7,8 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let observer = new Core.Observer(); 
     let time = new Core.TimeWithObserver(observer);
     let player = new Core.PlayerWithObserver(observer);
+    let cartCollection = new Core.CartCollection();
     let cartForUse = new Core.CartForUseWithObserver(observer);
-    let gameObjects = new Core.GameObjects(time, player, cartForUse);
+    let gameObjects = new Core.GameObjects(time, player, cartCollection, cartForUse);
     let statusLine = new Views.StatusLine(time);
 
     observer.addSubscruber(statusLine);
@@ -21,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this._gameObjects.getTime().addHours(8);
     });
 
-    player.addCart(workCart);
+    cartCollection.addCart(workCart);
 
     let sleepCart = new Core.Cart(gameObjects, 'Sleep', 'add 8 energy<br>sub 8 hours', Core.CartType.Action);
     sleepCart.setAction(function() {
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this._gameObjects.getTime().addHours(8);
     });
 
-    player.addCart(sleepCart);
+    cartCollection.addCart(sleepCart);
 
     let learningCart = new Core.Cart(gameObjects, 'Learning', 'sub 2 hours<br>sub 3 energy<br>add 1 level', Core.CartType.Action);
     learningCart.setAction(function() {
@@ -38,15 +39,15 @@ document.addEventListener('DOMContentLoaded', () => {
         this._gameObjects.getPlayer().addLevel(1);
     });
 
-    player.addCart(learningCart);
+    cartCollection.addCart(learningCart);
 
     let emptyCart = new Core.Cart(gameObjects);
     emptyCart.setAction(function() {
         alert('Ошибка природы');
     });
 
-    player.addCart(emptyCart);
-    player.addCart(new Core.Cart(gameObjects, 'Вах Вах', 'Аля улу', Core.CartType.Player, 
+    cartCollection.addCart(emptyCart);
+    cartCollection.addCart(new Core.Cart(gameObjects, 'Вах Вах', 'Аля улу', Core.CartType.Player, 
         function() {this._gameObjects.getPlayer().addMoney(4)}
     ));
     
@@ -57,8 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let desk = new Views.Desk(cartForUseView.html());
     let app = document.querySelector('#app');
-    for (let i: number = 0; i < player.getCarts().length; i++) {
-        desk.carts().append((new Views.Cart(i, player.getCarts()[i])).html());
+    for (let i: number = 0; i < cartCollection.getCarts().length; i++) {
+        desk.carts().append((new Views.Cart(i, cartCollection.getCarts()[i])).html());
     }
 
     let playerView = new Views.Player(player);

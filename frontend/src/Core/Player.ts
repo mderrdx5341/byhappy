@@ -7,29 +7,11 @@ class Player
     private _level: number;
     private _energy: number;
 
-    private _carts: Cart[];
-
     constructor()
     {
-        this._carts = [];
         this._level = 0;
         this._money = 0;
-        this._energy = 24;
-    }
-
-    public addCart(cart: Cart)
-    {
-        this._carts.push(cart);
-    }
-
-    public getCarts()
-    {
-        return this._carts;
-    }
-
-    public getCartById(id): Cart
-    {
-        return this._carts[id];
+        this._energy = 16;
     }
 
     public addMoney(money: number)
