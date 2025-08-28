@@ -3,9 +3,11 @@ class Desk
     private _html: HTMLElement;
     private _actions: HTMLElement;
     private _carts: HTMLElement;
+    private _cartForUse: HTMLElement;
 
-    constructor()
+    constructor(cartForUse)
     {
+        this._cartForUse = cartForUse;
         this._html = document.createElement('div');
         this._html.classList.add('desc');
 
@@ -16,6 +18,7 @@ class Desk
         this._actions.classList.add('actions');
 
         this._html.appendChild(this._carts);
+        this._html.appendChild(this._cartForUse);
         this._html.appendChild(this._actions);
     }
 

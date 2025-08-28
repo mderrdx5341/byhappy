@@ -3,10 +3,12 @@ import * as Views from '../.';
 
 class Cart
 {
+    private _id: number;
     private _cart: Core.Cart;
 
-    constructor(cart: Core.Cart)
+    constructor(id: number, cart: Core.Cart)
     {
+        this._id = id;
         this._cart = cart;
     }
 
@@ -45,13 +47,23 @@ class Cart
         btnAction.innerHTML = 'action';
         btnAction.addEventListener('click', () => this.action());
 
+        let btnUse = document.createElement('button');
+        btnUse.className = 'cart__use';
+        btnUse.innerHTML = 'use';
+        btnUse.addEventListener('click', () => this.use());
+
         html.append(title);
         html.append(description);
         html.append(type);
         html.append(btnDetails);
         html.append(btnAction);
+        html.append(btnUse);
 
         return html;
+    }
+
+    public use() {
+        this._cart.use(this._id);
     }
 
     public action()

@@ -4,13 +4,20 @@ class GameObjects
 {
     private _time: Core.Time;
     private _player: Core.Player;
+    private _cartForUse: Core.CartForUse;
     private _history: string; //TODO 
 
-    public constructor(time: Core.Time, player, history: string = 'todo')
+    public constructor(time: Core.Time, player, cartForUse: Core.CartForUse, history: string = 'todo')
     {
         this._time = time;
         this._player = player;
+        this._cartForUse = cartForUse;
         this._history = history;
+    }
+
+    public getCartForUse(): Core.CartForUse
+    {
+        return this._cartForUse;
     }
 
     public getTime(): Core.Time

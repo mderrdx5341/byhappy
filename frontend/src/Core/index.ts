@@ -9,5 +9,21 @@ import GameObjects from './GameObjects';
 import Observer from './Observer';
 import TimeWithObserver from './TimeWithObserver';
 import ISubscriber from './ISubscriber';
+import CartForUse from './CartForUse';
+import CartForUseWithObserver from './CartForUseWithObserver';
 
-export {Player, Cart, Effect, CartType, Place, Time, GameObjects, Observer, ISubscriber, TimeWithObserver, PlayerWithObserver};
+export {
+    Player,
+    Cart,
+    Effect,
+    CartType,
+    Place,
+    Time,
+    GameObjects,
+    Observer,
+    ISubscriber,
+    TimeWithObserver,
+    PlayerWithObserver,
+    CartForUse,
+    CartForUseWithObserver
+};

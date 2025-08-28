@@ -36,6 +36,13 @@ class Cart
         return this._description;
     }
 
+    public use(id)
+    {
+        //console.log(this._gameObjects.getPlayer().getCartById(id));
+        this._gameObjects.getCartForUse().addCart(this._gameObjects.getPlayer().getCartById(id));
+        console.log(this._gameObjects.getCartForUse());
+    }
+
     public effects()
     {
 

@@ -7,14 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let observer = new Core.Observer(); 
     let time = new Core.TimeWithObserver(observer);
     let player = new Core.PlayerWithObserver(observer);
-
-    let gameObjects = new Core.GameObjects(time, player)
+    let cartForUse = new Core.CartForUseWithObserver(observer);
+    let gameObjects = new Core.GameObjects(time, player, cartForUse);
     let statusLine = new Views.StatusLine(time);
 
-    observer.addSubscrubir(statusLine);
+    observer.addSubscruber(statusLine);
 
     
-    let workCart = new Core.Cart(gameObjects, 'Work', 'add 1 money', Core.CartType.Action);
+    let workCart = new Core.Cart(gameObjects, 'Work', 'add 1 money<br>sub 8 energy<br>sub 8 hours', Core.CartType.Action);
     workCart.setAction(function() {
         this._gameObjects.getPlayer().subEnergy(8);
         this._gameObjects.getPlayer().addMoney(1);
@@ -23,15 +23,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     player.addCart(workCart);
 
-    let sleepCart = new Core.Cart(gameObjects, 'Sleep', 'add 7 energy', Core.CartType.Action);
+    let sleepCart = new Core.Cart(gameObjects, 'Sleep', 'add 8 energy<br>sub 8 hours', Core.CartType.Action);
     sleepCart.setAction(function() {
-        this._gameObjects.getPlayer().addEnergy(8);
+        this._gameObjects.getPlayer().addEnergy(16);
         this._gameObjects.getTime().addHours(8);
     });
 
     player.addCart(sleepCart);
 
-    let learningCart = new Core.Cart(gameObjects, 'Learning', 'add', Core.CartType.Action);
+    let learningCart = new Core.Cart(gameObjects, 'Learning', 'sub 3 hours', Core.CartType.Action);
     learningCart.setAction(function() {
         this._gameObjects.getPlayer().subEnergy(3);
         this._gameObjects.getTime().addHours(2);
@@ -49,15 +49,20 @@ document.addEventListener('DOMContentLoaded', () => {
         function() {this._gameObjects.getPlayer().addMoney(4)}
     ));
     
-    let desk = new Views.Desk();
+    
+
+    let cartForUseView = new Views.CartForUse(cartForUse);
+    observer.addSubscruber(cartForUseView);
+    
+    let desk = new Views.Desk(cartForUseView.html());
     let app = document.querySelector('#app');
     for (let i: number = 0; i < player.getCarts().length; i++) {
-        desk.carts().append((new Views.Cart(player.getCarts()[i])).html());
+        desk.carts().append((new Views.Cart(i, player.getCarts()[i])).html());
     }
 
     let playerView = new Views.Player(player);
-
-    observer.addSubscrubir(playerView);
+    
+    observer.addSubscruber(playerView);
 
     desk.actions().append(
         new Views.Place(
