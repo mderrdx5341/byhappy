@@ -30,8 +30,7 @@ class Time
         this._days = Math.floor((this._hours + 8)  / 24);
 
         let t = 8 + this._hours;
-        console.log(24 * this._days)
-        console.log(t);
+
         if (t > 24) {
             this._time = t - (24 * this._days);
         } else {
