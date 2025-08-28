@@ -1,7 +1,7 @@
 import * as Core from '../../Core';
 import * as Views from '../.';
 
-class Cart
+class CartUse
 {
     private _id: number;
     private _cart: Core.Cart;
@@ -42,16 +42,16 @@ class Cart
             popup.show();
         });
 
-        let btnUse = document.createElement('button');
-        btnUse.className = 'cart__use';
-        btnUse.innerHTML = 'use';
-        btnUse.addEventListener('click', () => this.use());
+        let btnDel = document.createElement('button');
+        btnDel.className = 'cart__use';
+        btnDel.innerHTML = 'del';
+        btnDel.addEventListener('click', () => this.del());
 
         html.append(title);
         html.append(description);
         html.append(type);
         html.append(btnDetails);
-        html.append(btnUse);
+        html.append(btnDel);
 
         return html;
     }
@@ -59,6 +59,24 @@ class Cart
     public use() {
         this._cart.use(this._id);
     }
+
+    public del()
+    {
+        this._cart.del(this._id);
+    }
+
+    public action()
+    {
+        try 
+        {
+            this._cart.action();
+        } 
+        catch (e)
+        {
+            let popup = new Views.PopUp('Нельзя использовать карту', e.message);
+            popup.show();
+        }
+    }
 }
 
-export default Cart;
+export default CartUse;

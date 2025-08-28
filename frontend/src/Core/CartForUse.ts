@@ -14,6 +14,11 @@ class CartForUse
         this._carts.push(cart);
     }
 
+    public delCart(id)
+    {
+        this._carts.splice(id, 1);
+    }
+
     public getCarts()
     {
         return this._carts;
@@ -24,6 +29,7 @@ class CartForUse
         this._carts.forEach((c, i, cs) => {
             c.action();
         })
+        this._carts = [];
     }
 }
 

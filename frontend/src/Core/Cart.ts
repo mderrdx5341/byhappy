@@ -43,6 +43,11 @@ class Cart
         console.log(this._gameObjects.getCartForUse());
     }
 
+    public del(id)
+    {
+        this._gameObjects.getCartForUse().delCart(id);
+    }
+
     public effects()
     {
 
