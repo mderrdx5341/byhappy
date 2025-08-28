@@ -3,13 +3,13 @@ import Observer from './Observer';
 
 class Time
 {
-    private _step: number;
+    private _time: number;
     private _hours: number;
     private _days: number;
 
     public constructor()
     {
-        this._step = 0;
+        this._time = 8;
         this._hours = 0;
         this._days = 0;
     }
@@ -19,21 +19,35 @@ class Time
         return this._days;
     }
 
-    public addHours(steps: number = 1)
+    public getTime(): number
     {
-        this._step += steps;
-        this._days = Math.floor(this._step / 24);
+        return this._time;
     }
 
-    public subHours(steps: number = 1)
+    public addHours(hours: number = 1)
     {
-        this._step -= steps;
-        this._days = Math.floor(this._step / 24);
+        this._hours += hours;
+        this._days = Math.floor((this._hours + 8)  / 24);
+
+        let t = 8 + this._hours;
+        console.log(24 * this._days)
+        console.log(t);
+        if (t > 24) {
+            this._time = t - (24 * this._days);
+        } else {
+            this._time = t;
+        }
+    }
+
+    public subHours(hours: number = 1)
+    {
+        this._hours -= hours;
+        this._days = Math.floor(this._hours  / 24);
     }
 
     public getHours(): number
     {
-        return this._step;
+        return this._hours;
     }
 }
 
