@@ -1,5 +1,5 @@
 import * as Core from '../../Core';
-import * as Views from '../.';
+import * as Views from '..';
 
 class CartForUse implements Core.ISubscriber
 {
@@ -42,13 +42,23 @@ class CartForUse implements Core.ISubscriber
 
     public update()
     {
+        if(this._cartForUse.getCartAction() === null) {
+            this._cartsList.innerHTML = '';
+            this._btnUse.disabled = true;
+            return;
+        }
         this._cartsList.innerHTML = '';
-        this._cartForUse.getCarts().forEach((c, i, cl) => {
-            let cart = new Views.CartUse(i, c);
-            this._cartsList.appendChild(cart.html());
+        let actionCart = this._cartForUse.getCartAction();
+        let actionCartHtml = new Views.CartUse(999, actionCart);
+        this._cartsList.appendChild(actionCartHtml.html());
+
+        this._cartForUse.getCartsImprove().forEach((c, i, cl) => {
+            let cartImrove = new Views.CartUse(i, c);
+            this._cartsList.appendChild(cartImrove.html());
         });
 
-        if (this._cartForUse.getCarts().length > 0 ) {
+
+        if (this._cartForUse.getCartAction()) {
             this._btnUse.disabled = false;
         } else {
             this._btnUse.disabled = true;

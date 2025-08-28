@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     cartCollection.addCart(emptyCart);
-    cartCollection.addCart(new Core.Cart(gameObjects, 'Вах Вах', 'Аля улу', Core.CartType.Player, 
+    cartCollection.addCart(new Core.Cart(gameObjects, 'Вах Вах', 'Аля улу', Core.CartType.Improve, 
         function() {this._gameObjects.getPlayer().addMoney(4)}
     ));
     

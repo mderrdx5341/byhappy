@@ -1,35 +1,67 @@
 import Cart from "./Cart";
+import CartType from "./CartType";
 
 class CartForUse
 {
-    private _carts: Cart[];
+    private _cartAction: Cart;
+    private _cartsImprove: Cart[];
 
     public constructor()
     {
-        this._carts = [];
+        this._cartAction = null;
+        this._cartsImprove = [];
     }
 
     public addCart(cart: Cart)
     {
-        this._carts.push(cart);
+        if(this._cartAction === null && cart.getType() === 'action') {
+            this._cartAction = cart;
+            return;
+        }
+
+        if (cart.getType() === 'action') {
+            throw Error('Карту действий больше использовать нельзя');
+        }
+
+        if(cart.getType() === CartType.Improve && this._cartsImprove.length < this._cartAction.amountCartImprove()) {
+            this._cartsImprove.push(cart);
+            return;
+        } else {
+            throw Error('Улучшать больше нельзя');
+        }
+
+        throw Error('Данный тип карт нельзя добавить');
     }
 
-    public delCart(id)
+    public getCartAction()
     {
-        this._carts.splice(id, 1);
+        return this._cartAction;
     }
 
-    public getCarts()
+    public delCartAction()
     {
-        return this._carts;
+        this._cartAction = null
+        this._cartsImprove = [];
+    }
+
+    public delCartImrove(id)
+    {
+        this._cartsImprove.splice(id, 1);
+    }
+
+    public getCartsImprove()
+    {
+        return this._cartsImprove;
     }
 
     public use()
     {
-        this._carts.forEach((c, i, cs) => {
+        this._cartsImprove.forEach((c, i, cs) => {
             c.action();
         })
-        this._carts = [];
+        this._cartAction.action();
+        this._cartAction = null;
+        this._cartsImprove = [];
     }
 }
 

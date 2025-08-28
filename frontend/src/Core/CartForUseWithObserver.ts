@@ -15,11 +15,17 @@ class CartForUseWithObserver extends Core.CartForUse
         this._observer.updated();
     }
 
-    public delCart(id)
+    public delCartAction()
     {
-        super.delCart(id);
+        super.delCartAction();
         this._observer.updated();
     }
+
+    public delCartImrove(id: any): void {
+        super.delCartImrove(id);
+        this._observer.updated();
+    }
+
     public use()
     {
         super.use();

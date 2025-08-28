@@ -9,14 +9,17 @@ class Cart
     private _description: string = 'description';
     private _effects: Effect[];
     private _type: CartType;
-    private _action;
+    private _action: CallableFunction;
+    private _isOne: boolean;
+    private _isImprove: boolean;
+    private _amountCartImprove: number;
 
     constructor(
         gameObject: GameObjects,
         name: string = 'title',
         description: string = 'description',
-        type: CartType = CartType.Item,
-        action: CallableFunction = () =>{}
+        type: CartType = CartType.Action,
+        action: CallableFunction = () => {}
     )
     {
         this._action = action;
@@ -24,11 +27,29 @@ class Cart
         this._name = name;
         this._description = description;
         this._type = type;
+        this._isOne = true;
+        this._isImprove = true;
+        this._amountCartImprove = 1;
     }
 
     public title()
     {
         return this._name;
+    }
+
+    public isOne(): boolean
+    {
+        return this._isOne;
+    }
+
+    public isImprove()
+    {
+        return this._isImprove;
+    }
+
+    public amountCartImprove()
+    {
+        return 2;
     }
 
     public description()
@@ -41,12 +62,16 @@ class Cart
         this._gameObjects.getCartForUse().addCart(
             this._gameObjects.getCartCollection().getCartById(id)
         );
-        console.log(this._gameObjects.getCartForUse());
     }
 
-    public del(id)
+    public delAction()
     {
-        this._gameObjects.getCartForUse().delCart(id);
+        this._gameObjects.getCartForUse().delCartAction();
+    }
+
+    public delImprove(id)
+    {
+        this._gameObjects.getCartForUse().delCartImrove(id);
     }
 
     public effects()
@@ -64,7 +89,7 @@ class Cart
         this._action();
     }
 
-    public type()
+    public getType()
     {
         return this._type;
     }

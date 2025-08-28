@@ -28,7 +28,7 @@ class CartUse
 
         let type: HTMLElement = document.createElement('div');
         type.className = 'cart__type';
-        type.innerHTML = this._cart.type();
+        type.innerHTML = this._cart.getType();
 
         let btnDetails: HTMLElement = document.createElement('button');
         btnDetails.className = 'cart__details';
@@ -62,7 +62,12 @@ class CartUse
 
     public del()
     {
-        this._cart.del(this._id);
+        if (this._cart.getType() === Core.CartType.Action) {
+            this._cart.delAction();
+        }
+        if (this._cart.getType() === Core.CartType.Improve) {
+            this._cart.delImprove(this._id);
+        }     
     }
 
     public action()

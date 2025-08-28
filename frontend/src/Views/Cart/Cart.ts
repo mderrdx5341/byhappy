@@ -28,7 +28,7 @@ class Cart
 
         let type: HTMLElement = document.createElement('div');
         type.className = 'cart__type';
-        type.innerHTML = this._cart.type();
+        type.innerHTML = this._cart.getType();
 
         let btnDetails: HTMLElement = document.createElement('button');
         btnDetails.className = 'cart__details';
@@ -57,7 +57,12 @@ class Cart
     }
 
     public use() {
-        this._cart.use(this._id);
+        try {
+            this._cart.use(this._id);
+        } catch (e) {
+            let popup = new Views.PopUp(e.message, 'Используй или удаляй');
+            popup.show();
+        }
     }
 }
 
