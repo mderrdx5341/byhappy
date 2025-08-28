@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cartCollection.addCart(workCart);
 
-    let sleepCart = new Core.Cart(gameObjects, 'Sleep', 'add 8 energy<br>sub 8 hours', Core.CartType.Action);
+    let sleepCart = new Core.Cart(gameObjects, 'Sleep', 'add 16 energy<br>sub 8 hours', Core.CartType.Action);
     sleepCart.setAction(function() {
         this._gameObjects.getPlayer().addEnergy(16);
         this._gameObjects.getTime().addHours(8);
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     cartCollection.addCart(emptyCart);
-    cartCollection.addCart(new Core.Cart(gameObjects, 'Вах Вах', 'Аля улу', Core.CartType.Improve, 
+    cartCollection.addCart(new Core.Cart(gameObjects, 'add money 4', '4 money', Core.CartType.Improve, 
         function() {this._gameObjects.getPlayer().addMoney(4)}
     ));
     
