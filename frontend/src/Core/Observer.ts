@@ -9,7 +9,7 @@ class Observer
         this._subscrubers = [];
     }
 
-    public addSubscrubir(s: ISubscriber)
+    public addSubscruber(s: ISubscriber)
     {
         this._subscrubers.push(s);
     }
