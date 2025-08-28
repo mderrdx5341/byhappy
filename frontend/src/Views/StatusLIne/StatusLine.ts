@@ -19,7 +19,7 @@ class StatusLine implements Core.ISubscriber
 
         this._timeHtml = document.createElement('div');
         this._timeHtml.className = 'status-line__time';
-        this._timeHtml.innerHTML = 'Time: ' + this._time.getTime();
+        this._timeHtml.innerHTML = 'Time: ' + this._time.getTime() + ':00';
 
         this._daysHtml = document.createElement('div');
         this._daysHtml.className = 'status-line__days';
@@ -38,7 +38,7 @@ class StatusLine implements Core.ISubscriber
 
     public update()
     {
-        this._timeHtml.innerHTML = 'Time: ' + this._time.getTime();
+        this._timeHtml.innerHTML = 'Time: ' + this._time.getTime() + ':00';
         this._hoursHtml.innerHTML = 'Hours: ' + this._time.getHours();
         this._daysHtml.innerHTML = 'Days: ' + this._time.getDays();
     }

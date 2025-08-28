@@ -42,7 +42,7 @@ class Player
         this._money = money;
     }
 
-    public money(): number
+    public getMoney(): number
     {
         return this._money;
     }
@@ -65,7 +65,12 @@ class Player
         this._energy += energy;
     }
 
-    public level(): number
+    public addLevel(level: number)
+    {
+        this._level += level;
+    }
+
+    public getLevel(): number
     {
         return this._level;
     }

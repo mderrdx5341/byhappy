@@ -28,6 +28,11 @@ class PlayerWithObserver extends Core.Player
         this.updated();
     }
 
+    public addLevel(level: number): void {
+        super.addLevel(level);
+        this.updated();
+    }
+
     public updated()
     {
         this._observer.updated();

@@ -5,6 +5,7 @@ class Player implements Core.ISubscriber
     private _player: Core.Player;
     private _moneyHtml: HTMLElement;
     private _energyHtml: HTMLElement;
+    private _levelHtml: HTMLElement;
     
     constructor(player: Core.Player)
     {
@@ -18,11 +19,11 @@ class Player implements Core.ISubscriber
 
         this._moneyHtml = document.createElement('div');
         this._moneyHtml.className = 'player__money';
-        this._moneyHtml.innerHTML = 'Деньги: ' + this._player.money();
+        this._moneyHtml.innerHTML = 'Деньги: ' + this._player.getMoney();
 
-        let level = document.createElement('div');
-        level.className = 'player__money';
-        level.innerHTML = 'Уровень: ' + this._player.level();
+        this._levelHtml = document.createElement('div');
+        this._levelHtml.className = 'player__money';
+        this._levelHtml.innerHTML = 'Уровень: ' + this._player.getLevel();
 
         this._energyHtml = document.createElement('div');
         this._energyHtml.className = 'player__money';
@@ -30,8 +31,7 @@ class Player implements Core.ISubscriber
 
         player.appendChild(this._energyHtml);
         player.appendChild(this._moneyHtml);
-        
-        player.appendChild(level);
+        player.appendChild(this._levelHtml);
 
         return player;
     }
@@ -40,16 +40,22 @@ class Player implements Core.ISubscriber
     {
         this.updateMonery();
         this.updateEnergy();
+        this.updateLevel();
     }
 
     public updateMonery()
     {
-        this._moneyHtml.innerHTML = 'Деньги: ' + this._player.money();
+        this._moneyHtml.innerHTML = 'Деньги: ' + this._player.getMoney();
     }
 
     public updateEnergy()
     {
         this._energyHtml.innerHTML = 'Енергия: ' + this._player.getEnergy();
+    }
+
+    public updateLevel()
+    {
+        this._levelHtml.innerHTML = 'Енергия: ' + this._player.getLevel();
     }
 }
 

@@ -31,10 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     player.addCart(sleepCart);
 
-    let learningCart = new Core.Cart(gameObjects, 'Learning', 'sub 3 hours', Core.CartType.Action);
+    let learningCart = new Core.Cart(gameObjects, 'Learning', 'sub 2 hours<br>sub 3 energy<br>add 1 level', Core.CartType.Action);
     learningCart.setAction(function() {
         this._gameObjects.getPlayer().subEnergy(3);
         this._gameObjects.getTime().addHours(2);
+        this._gameObjects.getPlayer().addLevel(1);
     });
 
     player.addCart(learningCart);
@@ -53,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let cartForUseView = new Views.CartForUse(cartForUse);
     observer.addSubscruber(cartForUseView);
-    
+
     let desk = new Views.Desk(cartForUseView.html());
     let app = document.querySelector('#app');
     for (let i: number = 0; i < player.getCarts().length; i++) {
