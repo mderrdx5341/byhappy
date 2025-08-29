@@ -6,12 +6,19 @@ class Player
     private _money: number;
     private _level: number;
     private _energy: number;
+    private _hunger: number;
 
     constructor()
     {
         this._level = 0;
         this._money = 0;
         this._energy = 16;
+        this._hunger = 0;
+    }
+
+    public getMoney(): number
+    {
+        return this._money;
     }
 
     public addMoney(money: number)
@@ -22,11 +29,6 @@ class Player
     public setMoney(money: number)
     {
         this._money = money;
-    }
-
-    public getMoney(): number
-    {
-        return this._money;
     }
 
     public getEnergy(): number
@@ -45,6 +47,21 @@ class Player
     public addEnergy(energy)
     {
         this._energy += energy;
+    }
+
+    public getHunger(): number
+    {
+        return this._hunger;
+    }
+
+    public addHungre(hungre: number)
+    {
+        this._hunger += hungre;
+    }
+
+    public subHungre(hungre: number)
+    {
+        this._hunger -= hungre;
     }
 
     public addLevel(level: number)

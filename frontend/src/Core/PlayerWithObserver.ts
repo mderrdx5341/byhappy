@@ -16,13 +16,23 @@ class PlayerWithObserver extends Core.Player
         this.updated();
     }
 
-    public subEnergy(energy)
+    public addHungre(hungre: number): void {
+        super.addHungre(hungre);
+        this.updated();
+    }
+
+    public subHungre(hungre: number): void {
+        super.subHungre(hungre)
+        this.updated();
+    }
+
+    public subEnergy(energy: number)
     {
         super.subEnergy(energy);
         this.updated();
     }
 
-    public addEnergy(energy)
+    public addEnergy(energy: number)
     {
         super.addEnergy(energy);
         this.updated();

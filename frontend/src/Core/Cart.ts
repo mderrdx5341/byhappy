@@ -4,22 +4,23 @@ import GameObjects from './GameObjects';
 
 class Cart
 {
-    private _gameObjects: GameObjects;
-    private _name: string = 'title';
-    private _description: string = 'description';
-    private _effects: Effect[];
-    private _type: CartType;
-    private _action: CallableFunction;
-    private _isOne: boolean;
-    private _isImprove: boolean;
-    private _amountCartImprove: number;
+    protected _gameObjects: GameObjects;
+    protected _name: string = 'title';
+    protected _description: string = 'description';
+    protected _effects: Effect[];
+    protected _type: CartType;
+    protected _action: CallableFunction;
+    protected _isImprove: boolean;
+    protected _amountCartImprove: number;
+    protected _tag: string;
 
-    constructor(
+    public constructor(
         gameObject: GameObjects,
         name: string = 'title',
         description: string = 'description',
         type: CartType = CartType.Action,
-        action: CallableFunction = () => {}
+        action: CallableFunction = () => {},
+        tag: string = 'Work'
     )
     {
         this._action = action;
@@ -27,7 +28,6 @@ class Cart
         this._name = name;
         this._description = description;
         this._type = type;
-        this._isOne = true;
         this._isImprove = true;
         this._amountCartImprove = 1;
     }
@@ -37,11 +37,6 @@ class Cart
         return this._name;
     }
 
-    public isOne(): boolean
-    {
-        return this._isOne;
-    }
-
     public isImprove()
     {
         return this._isImprove;
@@ -49,7 +44,7 @@ class Cart
 
     public amountCartImprove()
     {
-        return 2;
+        return this._amountCartImprove;
     }
 
     public description()

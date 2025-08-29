@@ -14,32 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     observer.addSubscruber(statusLine);
 
-    
-    let workCart = new Core.Cart(gameObjects, 'Work', 'add 1 money<br>sub 8 energy<br>sub 8 hours', Core.CartType.Action);
-    workCart.setAction(function() {
-        this._gameObjects.getPlayer().subEnergy(8);
-        this._gameObjects.getPlayer().addMoney(1);
-        this._gameObjects.getTime().addHours(8);
-    });
-
-    cartCollection.addCart(workCart);
-
-    let sleepCart = new Core.Cart(gameObjects, 'Sleep', 'add 16 energy<br>sub 8 hours', Core.CartType.Action);
-    sleepCart.setAction(function() {
-        this._gameObjects.getPlayer().addEnergy(16);
-        this._gameObjects.getTime().addHours(8);
-    });
-
-    cartCollection.addCart(sleepCart);
-
-    let learningCart = new Core.Cart(gameObjects, 'Learning', 'sub 2 hours<br>sub 3 energy<br>add 1 level', Core.CartType.Action);
-    learningCart.setAction(function() {
-        this._gameObjects.getPlayer().subEnergy(3);
-        this._gameObjects.getTime().addHours(2);
-        this._gameObjects.getPlayer().addLevel(1);
-    });
-
-    cartCollection.addCart(learningCart);
+    let cartRepository = new Core.CartRepository(gameObjects);
+    cartCollection.addCart(cartRepository.getCart(Core.CartType.Action, 'Work'));
+    cartCollection.addCart(cartRepository.getCart(Core.CartType.Action, 'Sleep'));
+    cartCollection.addCart(cartRepository.getCart(Core.CartType.Action, 'ToEat'));
+    cartCollection.addCart(cartRepository.getCart(Core.CartType.Action, 'Learning'));
 
     let emptyCart = new Core.Cart(gameObjects);
     emptyCart.setAction(function() {
