@@ -58,7 +58,9 @@ class Cart
 
     public use() {
         try {
-            this._cart.use(this._id);
+            this._cart.getGameObjects().getCartForUse().addCart(
+                this._cart.getGameObjects().getCartCollection().getCartById(this._id)
+            );
         } catch (e) {
             let popup = new Views.PopUp(e.message, 'Используй или удаляй');
             popup.show();

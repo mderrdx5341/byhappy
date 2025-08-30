@@ -52,21 +52,9 @@ class Cart
         return this._description;
     }
 
-    public use(id)
+    public getGameObjects()
     {
-        this._gameObjects.getCartForUse().addCart(
-            this._gameObjects.getCartCollection().getCartById(id)
-        );
-    }
-
-    public delAction()
-    {
-        this._gameObjects.getCartForUse().delCartAction();
-    }
-
-    public delImprove(id)
-    {
-        this._gameObjects.getCartForUse().delCartImrove(id);
+        return this._gameObjects;
     }
 
     public effects()

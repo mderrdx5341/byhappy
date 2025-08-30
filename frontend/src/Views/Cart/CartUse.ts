@@ -56,17 +56,13 @@ class CartUse
         return html;
     }
 
-    public use() {
-        this._cart.use(this._id);
-    }
-
     public del()
     {
         if (this._cart.getType() === Core.CartType.Action) {
-            this._cart.delAction();
+            this._cart.getGameObjects().getCartForUse().delCartAction();
         }
         if (this._cart.getType() === Core.CartType.Improve) {
-            this._cart.delImprove(this._id);
+            this._cart.getGameObjects().getCartForUse().delCartImrove(this._id);
         }     
     }
 
