@@ -1,6 +1,7 @@
 import './app.scss';
 
 import * as Core from './Core';
+import DBCarts from './Core/CartsLibrary/DBCarts';
 import * as Views from './Views';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,11 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     observer.addSubscruber(statusLine);
 
-    let cartRepository = new Core.CartRepository(gameObjects);
-    cartCollection.addCart(cartRepository.getCart(Core.CartType.Action, 'Work'));
-    cartCollection.addCart(cartRepository.getCart(Core.CartType.Action, 'Sleep'));
-    cartCollection.addCart(cartRepository.getCart(Core.CartType.Action, 'ToEat'));
-    cartCollection.addCart(cartRepository.getCart(Core.CartType.Action, 'Learning'));
+    let cartRepository = new Core.CartRepository(gameObjects, new DBCarts(gameObjects));
+
+    cartCollection.addCarts(cartRepository.getCarts(Core.CartType.Action, 'Work'));
+    cartCollection.addCarts(cartRepository.getCarts(Core.CartType.Action, 'Sleep'));
+    cartCollection.addCarts(cartRepository.getCarts(Core.CartType.Action, 'ToEat'));
+    cartCollection.addCarts(cartRepository.getCarts(Core.CartType.Action, 'Learning'));
 
     let emptyCart = new Core.Cart(gameObjects);
     emptyCart.setAction(function() {

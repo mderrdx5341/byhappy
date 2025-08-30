@@ -88,6 +88,16 @@ class Cart
     {
         return this._type;
     }
+
+    public getTag()
+    {
+        return this._tag;
+    }
+
+    public condition()
+    {
+
+    }
 }
 
 export default Cart;

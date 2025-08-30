@@ -8,6 +8,7 @@ class Learning extends Cart{
         this._name = 'Learning';
         this._description = 'sub 2 hours<br>sub 3 energy<br>add 1 level';
         this._type = CartType.Action;
+        this._tag = 'Learning';
     }
     
     public action()

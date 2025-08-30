@@ -8,6 +8,7 @@ class ToEat extends Cart{
         this._name = 'ToEat';
         this._description = 'sub Hungre 3<br>sub 1 energy<br>sub 1 hours';
         this._type = CartType.Action;
+        this._tag = 'ToEat';
     }
     
     public action()
