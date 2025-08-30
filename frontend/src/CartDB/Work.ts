@@ -1,13 +1,13 @@
-import Cart from "../Cart";
-import CartType from "../CartType";
-import GameObjects from "../GameObjects";
+import Cart from "../Core/Cart";
+import CartType from "../Core/CartType";
+import GameObjects from "../Core/GameObjects";
 
-class Work1 extends Cart 
+class Work extends Cart 
 {
     public constructor(gameObjects: GameObjects) {
         super(gameObjects);
-        this._name = 'Work1';
-        this._description = 'zzadd 1 money<br>sub 8 energy<br>sub 8 hours';
+        this._name = 'Work';
+        this._description = 'add 1 money<br>sub 8 energy<br>sub 8 hours';
         this._type = CartType.Action;
         this._tag = 'Work';
     }
@@ -34,4 +34,4 @@ class Work1 extends Cart
     }
 }
 
-export default Work1;
+export default Work;

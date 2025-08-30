@@ -1,5 +1,5 @@
-import Cart from "../Cart";
-import GameObjects from "../GameObjects";
+import Cart from "../Core/Cart";
+import GameObjects from "../Core/GameObjects";
 import * as Carts from './.';
 
 class DBCarts
@@ -10,7 +10,7 @@ class DBCarts
     public registyCart()
     {
         this._carts.push(new Carts.Work(this._gameObjects));
-        //this._carts.push(new Carts.Work1(this._gameObjects));
+        this._carts.push(new Carts.Work1(this._gameObjects));
         this._carts.push(new Carts.Sleep(this._gameObjects));
         this._carts.push(new Carts.Learning(this._gameObjects));
         this._carts.push(new Carts.ToEat(this._gameObjects));

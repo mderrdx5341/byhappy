@@ -1,8 +1,8 @@
 import Cart from './Cart';
-import * as CartsLibrary from './CartsLibrary';
+import * as CartsLibrary from '../CartDB';
 import CartType from "./CartType";
 import GameObjects from './GameObjects';
-import DBCarts from './CartsLibrary/DBCarts';
+import DBCarts from '../CartDB/DBCarts';
 
 class CartRepository
 {

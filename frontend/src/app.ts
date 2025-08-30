@@ -1,7 +1,7 @@
 import './app.scss';
 
 import * as Core from './Core';
-import DBCarts from './Core/CartsLibrary/DBCarts';
+import DBCarts from './CartDB/DBCarts';
 import * as Views from './Views';
 
 document.addEventListener('DOMContentLoaded', () => {
