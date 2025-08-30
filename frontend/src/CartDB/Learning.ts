@@ -17,11 +17,7 @@ class Learning extends Cart{
         this._gameObjects.getPlayer().subEnergy(3);
         this._gameObjects.getTime().addHours(2);
         this._gameObjects.getPlayer().addLevel(1);
-    }
-
-    public registry()
-    {
-
+        this._gameObjects.getCartCollection().findCarts(CartType.Action, 'Work');
     }
 }
 

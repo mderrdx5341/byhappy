@@ -18,7 +18,7 @@ class CartRepository
     public getCarts(type: CartType, tag: string): Cart[]
     {
         return this._cartsDB.getCarts().filter((c, i, ca ) => {
-            if(c.getType() === type && c.getTag() === tag ) {
+            if(c.getType() === type && c.getTag() === tag && c.condition()) {
                 return c;
             }
         });

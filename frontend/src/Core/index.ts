@@ -12,6 +12,7 @@ import ISubscriber from './ISubscriber';
 import CartForUse from './CartForUse';
 import CartForUseWithObserver from './CartForUseWithObserver';
 import CartCollection from './CartCollection';
+import CartCollectionWithObserver from './CartCollectionWithObserver';
 import CartRepository from './CartRepository';
 
 export {
@@ -29,5 +30,6 @@ export {
     CartForUse,
     CartForUseWithObserver,
     CartCollection,
+    CartCollectionWithObserver,
     CartRepository
 };

@@ -18,11 +18,6 @@ class Sleep extends Cart
         this._gameObjects.getPlayer().addEnergy(16);
         this._gameObjects.getTime().addHours(8);
     }
-
-    public registry()
-    {
-
-    }
 }
 
 export default Sleep;

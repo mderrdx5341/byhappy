@@ -19,19 +19,6 @@ class Work extends Cart
         this._gameObjects.getPlayer().addMoney(1);
         this._gameObjects.getTime().addHours(8);
     }
-
-    public registry()
-    {
-
-    }
-
-    public condition(): Cart {
-
-        if (this._gameObjects.getPlayer().getLevel() === 0)
-        {
-            return this;
-        }
-    }
 }
 
 export default Work;

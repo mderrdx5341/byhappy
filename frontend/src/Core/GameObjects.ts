@@ -6,24 +6,13 @@ class GameObjects
     private _player: Core.Player;
     private _cartCollection: Core.CartCollection;
     private _cartForUse: Core.CartForUse;
+    private _cartRepository: Core.CartRepository;
     private _history: string; //TODO 
 
-    public constructor(time: Core.Time,
-        player: Core.Player,
-        cartCollection: Core.CartCollection,
-        cartForUse: Core.CartForUse,
-        history: string = 'todo')
+    public setTime(time: Core.Time )
     {
         this._time = time;
-        this._player = player;
-        this._cartCollection = cartCollection;
-        this._cartForUse = cartForUse;
-        this._history = history;
-    }
-
-    public getCartForUse(): Core.CartForUse
-    {
-        return this._cartForUse;
+        return this;
     }
 
     public getTime(): Core.Time
@@ -31,9 +20,21 @@ class GameObjects
         return this._time;
     }
 
+    public setPlayer(player: Core.Player)
+    {
+        this._player = player;
+        return this;
+    }
+
     public getPlayer(): Core.Player
     {
         return this._player;
+    }
+
+    public setCartCollection(cartCollection: Core.CartCollection)
+    {
+        this._cartCollection = cartCollection;
+        return this;
     }
 
     public getCartCollection()
@@ -41,10 +42,28 @@ class GameObjects
         return this._cartCollection;
     }
 
-    public getHistory()
+    public setCartRepository(cartRepository: Core.CartRepository)
     {
-        return this._history;
+        this._cartRepository = cartRepository;
+        return this;
     }
+
+    public getCartRepository(): Core.CartRepository
+    {
+        return this._cartRepository;
+    }
+
+    public setCartForUse(cartForUse: Core.CartForUse)
+    {
+        this._cartForUse = cartForUse;
+        return this;
+    }
+
+    public getCartForUse(): Core.CartForUse
+    {
+        return this._cartForUse;
+    }
+
 }
 
 export default GameObjects;

@@ -17,11 +17,6 @@ class ToEat extends Cart{
         this._gameObjects.getTime().addHours(1);
         this._gameObjects.getPlayer().subEnergy(1);
     }
-
-    public registry()
-    {
-
-    }
 }
 
 export default ToEat;

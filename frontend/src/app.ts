@@ -5,17 +5,24 @@ import DBCarts from './CartDB/DBCarts';
 import * as Views from './Views';
 
 document.addEventListener('DOMContentLoaded', () => {
-    let observer = new Core.Observer(); 
+    let gameObjects = new Core.GameObjects();
+    let observer = new Core.Observer();
+
     let time = new Core.TimeWithObserver(observer);
     let player = new Core.PlayerWithObserver(observer);
-    let cartCollection = new Core.CartCollection();
+    let cartCollection = new Core.CartCollectionWithObserver(gameObjects, observer);
     let cartForUse = new Core.CartForUseWithObserver(observer);
-    let gameObjects = new Core.GameObjects(time, player, cartCollection, cartForUse);
+    let cartRepository = new Core.CartRepository(gameObjects, new DBCarts(gameObjects));
+
+    gameObjects.setTime(time)
+        .setPlayer(player)
+        .setCartCollection(cartCollection)
+        .setCartForUse(cartForUse)
+        .setCartRepository(cartRepository);
+    
     let statusLine = new Views.StatusLine(time);
 
     observer.addSubscruber(statusLine);
-
-    let cartRepository = new Core.CartRepository(gameObjects, new DBCarts(gameObjects));
 
     cartCollection.addCarts(cartRepository.getCarts(Core.CartType.Action, 'Work'));
     cartCollection.addCarts(cartRepository.getCarts(Core.CartType.Action, 'Sleep'));
@@ -32,16 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
         function() {this._gameObjects.getPlayer().addMoney(4)}
     ));
     
-    
+    let cartCollectionView = new Views.CartCollection(cartCollection);
+    observer.addSubscruber(cartCollectionView);
 
     let cartForUseView = new Views.CartForUse(cartForUse);
     observer.addSubscruber(cartForUseView);
 
-    let desk = new Views.Desk(cartForUseView.html());
+    let desk = new Views.Desk(cartCollectionView, cartForUseView);
     let app = document.querySelector('#app');
-    for (let i: number = 0; i < cartCollection.getCarts().length; i++) {
-        desk.carts().append((new Views.Cart(i, cartCollection.getCarts()[i])).html());
-    }
 
     let playerView = new Views.Player(player);
     

@@ -94,9 +94,9 @@ class Cart
         return this._tag;
     }
 
-    public condition()
+    public condition(): boolean
     {
-
+        return true;
     }
 }
 

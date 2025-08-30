@@ -1,17 +1,26 @@
 import Cart from "./Cart";
+import CartType from "./CartType";
+import GameObjects from "./GameObjects";
 
 class CartCollection
 {
     private _carts: Cart[];
+    private _gameObjects;
     
-    public constructor()
+    public constructor(gameObjects: GameObjects)
     {
+        this._gameObjects = gameObjects;
         this._carts = [];
     }
 
     public addCart(cart: Cart)
     {
         this._carts.push(cart);
+    }
+
+    public findCarts(type: CartType, tag: string)
+    {
+        this.addCarts(this._gameObjects.getCartRepository().getCarts(type, tag));
     }
 
     public addCarts(carts: Cart[])

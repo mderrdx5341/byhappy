@@ -1,24 +1,25 @@
+import * as Views from "../.";
+
 class Desk
 {
     private _html: HTMLElement;
     private _actions: HTMLElement;
-    private _carts: HTMLElement;
-    private _cartForUse: HTMLElement;
+    private _cartCollection: Views.CartCollection;
+    private _cartForUse: Views.CartForUse;
 
-    constructor(cartForUse)
+    constructor(cartCollection: Views.CartCollection, cartForUse: Views.CartForUse)
     {
+        this._cartCollection = cartCollection;
         this._cartForUse = cartForUse;
+
         this._html = document.createElement('div');
         this._html.classList.add('desc');
-
-        this._carts = document.createElement('div');
-        this._carts.classList.add('carts');
         
         this._actions = document.createElement('div');
         this._actions.classList.add('actions');
 
-        this._html.appendChild(this._carts);
-        this._html.appendChild(this._cartForUse);
+        this._html.appendChild(this._cartCollection.html());
+        this._html.appendChild(this._cartForUse.html());
         this._html.appendChild(this._actions);
     }
 
@@ -34,7 +35,7 @@ class Desk
 
     public carts(): HTMLElement
     {
-        return this._carts;
+        return this._cartCollection.html();
     }
 }
 
