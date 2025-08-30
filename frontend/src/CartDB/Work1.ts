@@ -27,10 +27,7 @@ class Work1 extends Cart
 
     public condition(): boolean {
 
-        if (this._gameObjects.getPlayer().getLevel() === 1)
-        {
-            return true;
-        }
+        return this._gameObjects.getPlayer().getLevel() >= 1;
     }
 }
 

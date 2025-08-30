@@ -19,6 +19,10 @@ class Work extends Cart
         this._gameObjects.getPlayer().addMoney(1);
         this._gameObjects.getTime().addHours(8);
     }
+
+    public condition(): boolean {
+        return this._gameObjects.getPlayer().getLevel() === 0;
+    }
 }
 
 export default Work;
