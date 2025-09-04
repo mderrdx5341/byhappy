@@ -1,5 +1,4 @@
-import Cart from './Cart';
-import Observer from './Observer';
+import * as Core from './';
 
 class Time
 {

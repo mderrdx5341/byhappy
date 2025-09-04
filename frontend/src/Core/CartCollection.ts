@@ -41,4 +41,4 @@ class CartCollection
     }
 }
 
-export default CartCollection
+export default CartCollection;

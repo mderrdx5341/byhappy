@@ -15,9 +15,10 @@
       ".tsx"
     ],
     "include": [
-      "frontend/src/**"
+      "frontend/src/**/*.ts"
     ],
     "exclude": [
+      "frontend/src/app.ts",
       "**/*.d.ts",
       "**/tests/*"
     ],

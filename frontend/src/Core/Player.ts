@@ -1,6 +1,3 @@
-import Cart from './Cart';
-import Observer from './Observer';
-
 class Player
 {
     private _money: number;
