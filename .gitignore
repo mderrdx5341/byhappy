@@ -1,2 +1,4 @@
 node_modules/
 .osp/
+.nyc_output/
+/public/coverage/
