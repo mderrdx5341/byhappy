@@ -1,8 +1,8 @@
 ```typescript
 abstarct Cart {
-	condition();
-	require();
-	addCarts();
+	conditionToVisible();
+	requireCartForUse();
+	addCartsToHand();
 }
 
 ```
