@@ -86,6 +86,11 @@ class Cart
     {
         return true;
     }
+    
+    public require()
+    {
+        
+    }
 }
 
 export default Cart;

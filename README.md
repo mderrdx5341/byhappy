@@ -1,34 +1,8 @@
-```
-game
-	step
-		playCart(cart: Cart)
-			cart.action(player)
+```typescript
+abstarct Cart {
+	condition();
+	require();
+	carts();
+}
 
-	carts<Cart>[];
-	cart
-	{
-		title()
-		description()
-		effects[]
-		action()
-		type : enum {
-			item,
-			player,
-			action
-		}
-	}
-	action(cart)
-	{
-		cart.action()
-	}
-	
-	
-	effect{
-		title()
-		description()
-	}
-	
-	desk(actions[])
-	{
-	}
 ```
