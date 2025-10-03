@@ -4,11 +4,13 @@ import CartType from "./CartType";
 class CartForUse
 {
     private _cartAction: Cart;
+    private _cartsImproveLastId: number;
     private _cartsImprove: Cart[];
 
     public constructor()
     {
         this._cartAction = null;
+        this._cartsImproveLastId = 0;
         this._cartsImprove = [];
     }
 
@@ -25,6 +27,7 @@ class CartForUse
 
         if(cart.getType() === CartType.Improve && this._cartsImprove.length < this._cartAction.amountCartImprove()) {
             this._cartsImprove.push(cart);
+            this._cartsImproveLastId++;
             return;
         } else {
             throw Error('Улучшать больше нельзя');

@@ -23,7 +23,9 @@
       "**/tests/*"
     ],
     "reporter": [
-      "html"
+      "html",
+      "text",
+      "text-summary"
     ],
     "all": true
   },
